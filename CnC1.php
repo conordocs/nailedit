@@ -1,7 +1,7 @@
 <?php
 include 'connection/config.php';
 // rquesting PHPMailer so that the website can send emails
-require 'PHPMailer/PHPMailerAutoload.php';
+// require 'PHPMailer/PHPMailerAutoload.php';
 
 // selecting information for Ace Hardware
 $shopQ = "SELECT * FROM shops WHERE id = 2";
@@ -111,40 +111,40 @@ while ($row = $shopR->fetch_assoc()) {
                     }
 
                     // if user is logged on then send email with user price instead of RRP.
-                    $mail = new PHPMailer();
-                    $mail->isSMTP();
-                    $mail->SMTPAuth = true;
-                    $mail->SMTPSecure = 'ssl';
-                    $mail->Host = 'smtp.gmail.com';
-                    $mail->Port = '465';
-                    $mail->isHTML();
-                    $mail->Username = 'nailedit.2407@gmail.com';
-                    $mail->Password = 'Nailedit2021';
-                    $mail->SetFrom('no-reply@nailedit.com');
-                    $mail->Subject = 'Order Confirmation';
-                    $mail->Body = "Hi $firstName, 
-                        <br><br> <b>---- Order Details ----</b><br><br>
-                        <table cellspacing=\"4\" cellpadding=\"4\" border=\"1\" align=\"left\">
-                            <tr>
-                                <th align=\"center\" width=\"200\">Shop</th>
-                                <th align=\"center\" width=\"200\">Product</th>
-                                <th align=\"center\" width=\"100\">Price</th>
-                                <th align=\"center\" width=\"100\">Quantity</th>
-                                <th align=\"center\" width=\"100\">Total</th>
-                            </tr>
-                            <tr>
-                                <td align=\"center\" width=\"200\">$shop_name</td>
-                                <td align=\"center\" width=\"200\">$product_name</td>
-                                <td align=\"center\" width=\"100\">&pound;$userPrice</td>
-                                <td align=\"center\" width=\"100\">$quantity</td>
-                                <td align=\"center\" width=\"100\">&pound;$total</td>
-                            </tr>
-                        </table><br><br><br>
-                    <br><br>Thanks for ordering with NailedIT. 
-                    <br><br> Kind Regards, <br>NailedIT Team";
-                    $mail->AddAddress($emailAddress);
+                    // $mail = new PHPMailer();
+                    // $mail->isSMTP();
+                    // $mail->SMTPAuth = true;
+                    // $mail->SMTPSecure = 'ssl';
+                    // $mail->Host = 'smtp.gmail.com';
+                    // $mail->Port = '465';
+                    // $mail->isHTML();
+                    // $mail->Username = 'nailedit.2407@gmail.com';
+                    // $mail->Password = 'Nailedit2021';
+                    // $mail->SetFrom('no-reply@nailedit.com');
+                    // $mail->Subject = 'Order Confirmation';
+                    // $mail->Body = "Hi $firstName, 
+                    //     <br><br> <b>---- Order Details ----</b><br><br>
+                    //     <table cellspacing=\"4\" cellpadding=\"4\" border=\"1\" align=\"left\">
+                    //         <tr>
+                    //             <th align=\"center\" width=\"200\">Shop</th>
+                    //             <th align=\"center\" width=\"200\">Product</th>
+                    //             <th align=\"center\" width=\"100\">Price</th>
+                    //             <th align=\"center\" width=\"100\">Quantity</th>
+                    //             <th align=\"center\" width=\"100\">Total</th>
+                    //         </tr>
+                    //         <tr>
+                    //             <td align=\"center\" width=\"200\">$shop_name</td>
+                    //             <td align=\"center\" width=\"200\">$product_name</td>
+                    //             <td align=\"center\" width=\"100\">&pound;$userPrice</td>
+                    //             <td align=\"center\" width=\"100\">$quantity</td>
+                    //             <td align=\"center\" width=\"100\">&pound;$total</td>
+                    //         </tr>
+                    //     </table><br><br><br>
+                    // <br><br>Thanks for ordering with NailedIT. 
+                    // <br><br> Kind Regards, <br>NailedIT Team";
+                    // $mail->AddAddress($emailAddress);
 
-                    $mail->Send();
+                    // $mail->Send();
                 } else {
 
                     // if user isn't logged in the continue with order but with RRP
@@ -165,40 +165,40 @@ while ($row = $shopR->fetch_assoc()) {
                     }
 
                     // send email with RRP instead of user price
-                    $mail = new PHPMailer();
-                    $mail->isSMTP();
-                    $mail->SMTPAuth = true;
-                    $mail->SMTPSecure = 'ssl';
-                    $mail->Host = 'smtp.gmail.com';
-                    $mail->Port = '465';
-                    $mail->isHTML();
-                    $mail->Username = 'nailedit.2407@gmail.com';
-                    $mail->Password = 'Nailedit2021';
-                    $mail->SetFrom('no-reply@nailedit.com');
-                    $mail->Subject = 'Order Confirmation';
-                    $mail->Body = "Hi $firstName, 
-                    <br><br> <b>---- Order Details ----</b><br><br>
-                        <table cellspacing=\"4\" cellpadding=\"4\" border=\"1\" align=\"left\">
-                            <tr>
-                                <th align=\"center\" width=\"200\">Shop</th>
-                                <th align=\"center\" width=\"200\">Product</th>
-                                <th align=\"center\" width=\"100\">Price</th>
-                                <th align=\"center\" width=\"100\">Quantity</th>
-                                <th align=\"center\" width=\"100\">Total</th>
-                            </tr>
-                            <tr>
-                                <td align=\"center\" width=\"200\">$shop_name</td>
-                                <td align=\"center\" width=\"200\">$product_name</td>
-                                <td align=\"center\" width=\"100\">&pound;$price</td>
-                                <td align=\"center\" width=\"100\">$quantity</td>
-                                <td align=\"center\" width=\"100\">&pound;$total2</td>
-                            </tr>
-                        </table><br><br><br>
-                    <br><br>Thanks for ordering with NailedIT. 
-                    <br><br> Kind Regards, <br>NailedIT Team";
-                    $mail->AddAddress($emailAddress);
+                    // $mail = new PHPMailer();
+                    // $mail->isSMTP();
+                    // $mail->SMTPAuth = true;
+                    // $mail->SMTPSecure = 'ssl';
+                    // $mail->Host = 'smtp.gmail.com';
+                    // $mail->Port = '465';
+                    // $mail->isHTML();
+                    // $mail->Username = 'nailedit.2407@gmail.com';
+                    // $mail->Password = 'Nailedit2021';
+                    // $mail->SetFrom('no-reply@nailedit.com');
+                    // $mail->Subject = 'Order Confirmation';
+                    // $mail->Body = "Hi $firstName, 
+                    // <br><br> <b>---- Order Details ----</b><br><br>
+                    //     <table cellspacing=\"4\" cellpadding=\"4\" border=\"1\" align=\"left\">
+                    //         <tr>
+                    //             <th align=\"center\" width=\"200\">Shop</th>
+                    //             <th align=\"center\" width=\"200\">Product</th>
+                    //             <th align=\"center\" width=\"100\">Price</th>
+                    //             <th align=\"center\" width=\"100\">Quantity</th>
+                    //             <th align=\"center\" width=\"100\">Total</th>
+                    //         </tr>
+                    //         <tr>
+                    //             <td align=\"center\" width=\"200\">$shop_name</td>
+                    //             <td align=\"center\" width=\"200\">$product_name</td>
+                    //             <td align=\"center\" width=\"100\">&pound;$price</td>
+                    //             <td align=\"center\" width=\"100\">$quantity</td>
+                    //             <td align=\"center\" width=\"100\">&pound;$total2</td>
+                    //         </tr>
+                    //     </table><br><br><br>
+                    // <br><br>Thanks for ordering with NailedIT. 
+                    // <br><br> Kind Regards, <br>NailedIT Team";
+                    // $mail->AddAddress($emailAddress);
 
-                    $mail->Send();
+                    // $mail->Send();
                 }
                 // success message
                 $msg = "<div class='alert alert-success d-flex justify-content-center text-center'>Successfully Ordered. <br> Check Email for confirmation receipt!</div>";
@@ -266,7 +266,7 @@ while ($row = $shopR->fetch_assoc()) {
         </div>
         <div class='dropdown-divider'></div>
         <div class="d-flex justify-content-center h-100">
-        <!-- click and collect form -->
+            <!-- click and collect form -->
             <div class="click_collect_card">
                 <div class="d-flex justify-content-center">
                     <h1>Click & Collect</h1><br>
@@ -316,7 +316,7 @@ while ($row = $shopR->fetch_assoc()) {
                                         <!-- if user is NOT logged in then show RRP -->
                                     <?php }
                                 } else {
-                                    
+
                                     foreach ($s1Result as $output) { ?>
                                         <?= "<option value=$output[product_id]> $output[name] || (£$output[price]) || (<b>$output[quantity]</b> in stock)</option>"; ?>
                                 <?php }

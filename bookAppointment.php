@@ -2,7 +2,7 @@
 include 'connection/config.php';
 
 // rquesting PHPMailer so that the website can send emails
-require 'PHPMailer/PHPMailerAutoload.php';
+// require 'PHPMailer/PHPMailerAutoload.php';
 
 // selecting all data from appointment table
 $query = "SELECT * FROM appointment";
@@ -124,40 +124,40 @@ $tradeR = $conn->query($tradeQ);
                 echo "<div class='alert alert-success d-flex justify-content-center text-center'>Successfully Booked.<br> Check Email for confirmation!</div>";
 
                 // using PHPMailer to send confirmation of booking to email which has been submitted in the form. 
-                $mail = new PHPMailer();
-                $mail->isSMTP();
-                $mail->SMTPAuth = true;
-                $mail->SMTPSecure = 'ssl';
-                $mail->Host = 'smtp.gmail.com';
-                $mail->Port = '465';
-                $mail->isHTML();
-                $mail->Username = 'nailedit.2407@gmail.com';
-                $mail->Password = 'Nailedit2021';
-                $mail->SetFrom('no-reply@nailedit.com');
-                $mail->Subject = 'Booking Confirmation';
-                $mail->Body = "Hi $fullName, 
-                <br><br> <b>---- Booking Details ----</b><br><br>
-                    <table cellspacing=\"4\" cellpadding=\"4\" border=\"1\" align=\"left\">
-                        <tr>
-                            <th align=\"center\" width=\"300\">Address</th>
-                            <th align=\"center\" width=\"150\">Date</th>
-                            <th align=\"center\" width=\"150\">Time</th>
-                            <th align=\"center\" width=\"200\">Tradesman</th>
-                            <th align=\"center\" width=\"200\">Call Out Fee</th>
-                        </tr>
-                        <tr>
-                            <td align=\"center\" width=\"300\">$address</td>
-                            <td align=\"center\" width=\"150\">$newDate</td>
-                            <td align=\"center\" width=\"150\">$time</td>
-                            <td align=\"center\" width=\"200\">$trade_name</td>
-                            <td align=\"center\" width=\"200\">&pound;$call_out_fee</td>
-                        </tr>
-                    </table><br><br><br>
-                <br><br>Thanks for booking with NailedIT. 
-                <br><br> Kind Regards, <br>NailedIT Team";
-                $mail->AddAddress($emailAddress);
+                // $mail = new PHPMailer();
+                // $mail->isSMTP();
+                // $mail->SMTPAuth = true;
+                // $mail->SMTPSecure = 'ssl';
+                // $mail->Host = 'smtp.gmail.com';
+                // $mail->Port = '465';
+                // $mail->isHTML();
+                // $mail->Username = 'nailedit.2407@gmail.com';
+                // $mail->Password = 'Nailedit2021';
+                // $mail->SetFrom('no-reply@nailedit.com');
+                // $mail->Subject = 'Booking Confirmation';
+                // $mail->Body = "Hi $fullName, 
+                // <br><br> <b>---- Booking Details ----</b><br><br>
+                //     <table cellspacing=\"4\" cellpadding=\"4\" border=\"1\" align=\"left\">
+                //         <tr>
+                //             <th align=\"center\" width=\"300\">Address</th>
+                //             <th align=\"center\" width=\"150\">Date</th>
+                //             <th align=\"center\" width=\"150\">Time</th>
+                //             <th align=\"center\" width=\"200\">Tradesman</th>
+                //             <th align=\"center\" width=\"200\">Call Out Fee</th>
+                //         </tr>
+                //         <tr>
+                //             <td align=\"center\" width=\"300\">$address</td>
+                //             <td align=\"center\" width=\"150\">$newDate</td>
+                //             <td align=\"center\" width=\"150\">$time</td>
+                //             <td align=\"center\" width=\"200\">$trade_name</td>
+                //             <td align=\"center\" width=\"200\">&pound;$call_out_fee</td>
+                //         </tr>
+                //     </table><br><br><br>
+                // <br><br>Thanks for booking with NailedIT. 
+                // <br><br> Kind Regards, <br>NailedIT Team";
+                // $mail->AddAddress($emailAddress);
 
-                $mail->Send();
+                // $mail->Send();
             } else {
                 // form failed message
                 $msg = '<div class="alert alert-danger d-flex justify-content-center">There was an error. Please try again.</div>';

@@ -1,7 +1,7 @@
 <?php
 include 'connection/config.php';
 // rquesting PHPMailer so that the website can send emails
-require 'PHPMailer/PHPMailerAutoload.php';
+// require 'PHPMailer/PHPMailerAutoload.php';
 
 // pulling information from forgot passowrd form
 if ($_POST) {
@@ -18,21 +18,21 @@ if ($_POST) {
 
     // if email entered is registered then email will be sent to given email with password
     if ($num > 0) {
-        $mail = new PHPMailer();
-        $mail->isSMTP();
-        $mail->SMTPAuth = true;
-        $mail->SMTPSecure = 'ssl';
-        $mail->Host = 'smtp.gmail.com';
-        $mail->Port = '465'; //587 465
-        $mail->isHTML();
-        $mail->Username = 'nailedit.2407@gmail.com';
-        $mail->Password = 'Nailedit2021';
-        $mail->SetFrom('no-reply@nailedit.com');
-        $mail->Subject = 'Password Query';
-        $mail->Body = "Hi $fname, <br><br> Your password is: '$password'. <br><br> Kind Regards, <br>NailedIT Team";
-        $mail->AddAddress($email);
+        // $mail = new PHPMailer();
+        // $mail->isSMTP();
+        // $mail->SMTPAuth = true;
+        // $mail->SMTPSecure = 'ssl';
+        // $mail->Host = 'smtp.gmail.com';
+        // $mail->Port = '465'; //587 465
+        // $mail->isHTML();
+        // $mail->Username = 'nailedit.2407@gmail.com';
+        // $mail->Password = 'Nailedit2021';
+        // $mail->SetFrom('no-reply@nailedit.com');
+        // $mail->Subject = 'Password Query';
+        // $mail->Body = "Hi $fname, <br><br> Your password is: '$password'. <br><br> Kind Regards, <br>NailedIT Team";
+        // $mail->AddAddress($email);
 
-        $mail->Send();
+        // $mail->Send();
 
         // success message
         $msg = "<div class='alert alert-success d-flex justify-content-center'>Your password has been sent to your email.</div>";

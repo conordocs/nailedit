@@ -92,20 +92,20 @@ $booking_result = $conn->query($booking_query);
                                             <th scope='col'>Date of Booking</th>
                                             </tr>
                                         </thead>";
-                                        ?>
-                                        <?php
-                                        // using while loop to fetch desired data to display on table
-                                        while ($row1 = $booking_result->fetch_assoc()) {
-                                            $booking_id = $row1["id"];
-                                            $address = $row1["address"];
-                                            $date = $row1["date"];
-                                            $newDate = date("d-m-Y", strtotime($date));
-                                            $time = $row1["time"];
-                                            $dob = $row1["date_of_booking"];
-                                            $newDob = date("d-m-Y", strtotime($dob));
-                                            $trade = $row1["trade"];
+            ?>
+            <?php
+            // using while loop to fetch desired data to display on table
+            while ($row1 = $booking_result->fetch_assoc()) {
+                $booking_id = $row1["id"];
+                $address = $row1["address"];
+                $date = $row1["date"];
+                $newDate = date("d-m-Y", strtotime($date));
+                $time = $row1["time"];
+                $dob = $row1["date_of_booking"];
+                $newDob = date("d-m-Y", strtotime($dob));
+                $trade = $row1["trade"];
 
-                                            echo "<tbody>
+                echo "<tbody>
                                                 <tr>
                                                 <th scope='row'>#$booking_id</th>
                                                 <td>$address</td>
@@ -116,31 +116,31 @@ $booking_result = $conn->query($booking_query);
                                                 
                                                 </tr>
                                             </tbody>";
-                                    }
-                                    echo "</table>";
-                                    ?>
+            }
+            echo "</table>";
+            ?>
 
-                                    <?php
-
-
-                                    // selecting data to separate it into different pages using pagination
-                                    $page_query = "SELECT appointment.id, appointment.address, appointment.date, appointment.time, appointment.trade_id, appointment.date_of_booking, trades.trade FROM appointment INNER JOIN trades ON trades.id = appointment.trade_id WHERE trades.id = appointment.trade_id AND appointment.email = '$email' ORDER BY appointment.id ASC";
-                                    $page_result = $conn->query($page_query);
-                                    $total_bookings = mysqli_num_rows($page_result);
-                                    $total_pages = ceil($total_bookings / $bookings_per_page);
-
-                                    // links to different pages
-                                    echo '<ul class="pagination justify-content-center">';
-                                    for ($i = 1; $i <= $total_pages; $i++) {
-                                        echo '<h5><a class="page-link" href="bookings.php?page=' . $i . '">' . $i . '</a></h5>';
-                                    }
-                                    echo '</ul>';
+            <?php
 
 
-                                    ?>
+            // selecting data to separate it into different pages using pagination
+            $page_query = "SELECT appointment.id, appointment.address, appointment.date, appointment.time, appointment.trade_id, appointment.date_of_booking, trades.trade FROM appointment INNER JOIN trades ON trades.id = appointment.trade_id WHERE trades.id = appointment.trade_id AND appointment.email = '$email' ORDER BY appointment.id ASC";
+            $page_result = $conn->query($page_query);
+            $total_bookings = mysqli_num_rows($page_result);
+            $total_pages = ceil($total_bookings / $bookings_per_page);
 
-                                    <?php
-                                echo "</div>
+            // links to different pages
+            echo '<ul class="pagination justify-content-center">';
+            for ($i = 1; $i <= $total_pages; $i++) {
+                echo '<h5><a class="page-link" href="bookings.php?page=' . $i . '">' . $i . '</a></h5>';
+            }
+            echo '</ul>';
+
+
+            ?>
+
+            <?php
+            echo "</div>
                             </div>
                         </div>
                     </div>
